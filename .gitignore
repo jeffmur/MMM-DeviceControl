@@ -2,3 +2,4 @@ node_modules
 uploads
 npm-debug.log
 service-account.json
+package-lock.json
