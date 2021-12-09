@@ -24,12 +24,12 @@ module.exports = NodeHelper.create({
     // [START initialize]
     // Initialize the app with a service account, granting admin privileges
     /** @type {any} */
-    const serviceAccount = require("/home/pi/MagicMirror/modules/MMM-DeviceControl/service-account.json");
+    const serviceAccount = require("../service-account.json");
     firebase.initializeApp({
       credential: firebase.credential.cert(serviceAccount),
-      databaseURL: "https://smartmirror-fba08-default-rtdb.firebaseio.com"
+      databaseURL: "WEBHOOK OF FIREBASE URL"
     });
-    this.dataRoot = "/mirror/";
+    this.dataRoot = "/mirror/"; // name of device
     savedState = this;
     // [END initialize]
   },

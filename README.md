@@ -8,11 +8,7 @@ Note: requies Firebase Token + Firebase node packages.
 
 ## Setup
 
-*Credentials*: Append the following to your **~/.bashrc**
-``` js 
-# <<< FIREBASE >>>
-export FIREBASE_TOKEN="COPY AND PASTE TOKEN"
-```
+Credentials are in the form of service keys json files and are created in the IAM Console of [Google Cloud Console](https://console.cloud.google.com/).
 
 ## Dependencies 
 | Repository | Purpose |
@@ -40,4 +36,6 @@ Reference Realtime Database image.
 | mute_daemon() | Volume.isMuted state |
 
 ![](imgs/RealtimeDatabase.png)
+
+## Install 
 
