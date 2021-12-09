@@ -12,8 +12,6 @@ Note: requies Firebase Token + Firebase node packages.
 ``` js 
 # <<< FIREBASE >>>
 export FIREBASE_TOKEN="COPY AND PASTE TOKEN"
-# <<< Magic Mirror Pub/Sub <<<
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service/key.json"
 ```
 
 ## Dependencies 
