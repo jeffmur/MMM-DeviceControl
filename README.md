@@ -1,35 +1,45 @@
-# MagicMirror-Module-Template
-This is a module to help developers to start building their own modules for the [MagicMirror](https://github.com/MichMich/MagicMirror). 
+# MMM-DeviceControl 
 
-There samples of code for:
-- External request
-- Config parameters
-- Custom URL path route
-- Passing of messages (NOTIFICATIONS)
+The purpose of this repository is to communicate back and forth with a Firebase Realtime Database with read + write permissions. 
 
-Also this module include tasks for checking your code. For that you need install the developer dependencies.
+It will execute local commands to control the a Raspberry Pi 4, Debian Buster, volume + screensaver. 
 
-```
-cd MI_MODULE_PATH && npm install 
-```
+Note: requies Firebase Token + Firebase node packages. 
 
-Run the `test` npm script
-```
-npm test
+## Setup
+
+*Credentials*: Append the following to your **~/.bashrc**
+``` js 
+# <<< FIREBASE >>>
+export FIREBASE_TOKEN="COPY AND PASTE TOKEN"
+# <<< Magic Mirror Pub/Sub <<<
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service/key.json"
 ```
 
-Current Tests:
-- [ESLint](http://eslint.org/) for linting the javascript
-- [stylelint](https://stylelint.io/) for linting the CSS with [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) as its base
-- [jsonlint](https://github.com/zaach/jsonlint) for linting the translation files
-- [markdownlint](https://github.com/DavidAnson/markdownlint) for checking the markdown files (`README.md`, `CHANGELOG.md`, `LICENSE.txt`)
-- [js-yaml](https://github.com/nodeca/js-yaml) to lint the `.travis.yml` (run through [grunt-yamllint](https://github.com/geedew/grunt-yamllint))
+## Dependencies 
+| Repository | Purpose |
+| --- | --- |
+| firebase-smarthome/ | Firebase Function + Testing user-interface
+| [Magic Mirror](https://github.com/MichMich/MagicMirror) | MagicMirror User Interface
+| [MMM-GoogleAssistant](https://github.com/jeffmur/MMM-GoogleAssistant) | Embedded Assistant api v2
+| [MMM-ProfileSwitcher](https://github.com/jeffmur/MMM-ProfileSwitcher) | Google Pub/Sub subscriber for events
 
+## Install + Integration
+**Assuming Magic Mirror is already installed!**
+```sh
+cd ~/MagicMirror/modules
+git clone https://github.com/jeffmur/MMM-DeviceControl
+cd MMM-DeviceControl
+npm install
+```
 
-## Installation
+## Run Time Tasks 
+Reference Realtime Database image. 
+| Daemon | Database Attribute |
+| --- | --- |
+| display_daemon() | OnOff.on state |
+| volume_daemon() | Volume.volumeLevel state |
+| mute_daemon() | Volume.isMuted state |
 
-`bash -c "$(curl -sL https://raw.githubusercontent.com/roramirez/MagicMirror-Module-Template/master/create_module.sh)"`
+![](imgs/RealtimeDatabase.png)
 
-This creates a module example to start your development more easy.
-
-If you have any suggest, please let me know [by an issue](https://github.com/roramirez/MagicMirror-Module-Template/issues/new).
